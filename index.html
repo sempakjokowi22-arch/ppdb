@@ -1,0 +1,530 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPDB SDN DARU 01</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
+body{background:#f4f6fa;color:#24344d}
+header{background:#102d50;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.logo{font-size:21px;font-weight:bold}
+.logo span{color:#d8b66a}
+nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+nav a:hover{color:#d8b66a}
+.hero{padding:90px 8%;color:white;background:linear-gradient(110deg,#102d50ed,#102d5070),url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1600') center/cover}
+.hero h1{font-size:44px;max-width:650px;margin:20px 0}
+.hero p{line-height:1.8;max-width:600px;color:#e0e8f1}
+.badge{display:inline-block;background:#d8b66a;color:#102d50;padding:9px 17px;border-radius:30px;font-size:12px;font-weight:bold}
+.btn{display:inline-block;border:0;background:#d8b66a;color:#102d50;padding:13px 22px;border-radius:8px;text-decoration:none;font-weight:bold;cursor:pointer;margin-top:20px}
+section{padding:65px 8%}
+.heading{text-align:center;margin-bottom:35px}
+.heading h2{font-size:30px;color:#102d50;margin-bottom:10px}
+.heading p{color:#8290a0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:white;padding:27px;border-radius:14px;box-shadow:0 5px 25px #102d5010}
+.card h3{color:#102d50;margin-bottom:12px}
+.card p{color:#718096;line-height:1.8;font-size:14px}
+.icon{font-size:35px;margin-bottom:14px}
+.visi{background:#102d50;color:white;border-radius:18px;padding:35px;margin-bottom:20px}
+.visi h3{color:#d8b66a;margin-bottom:14px;font-size:24px}
+.visi p{line-height:1.9;color:#e2eaf3}
+.misi{background:white;border-radius:15px;padding:30px}
+.misi h3{color:#102d50;margin-bottom:18px}
+.misi ol{padding-left:22px;line-height:2.2;color:#64748b}
+.formbox,.adminbox{max-width:850px;margin:auto;background:white;padding:35px;border-radius:16px;box-shadow:0 5px 30px #102d5010}
+.formbox h2,.adminbox h2{color:#102d50;margin-bottom:10px}
+.formbox>p{color:#8290a0;margin-bottom:25px}
+.group{margin-bottom:17px}
+label{display:block;font-size:14px;font-weight:600;margin-bottom:8px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #dce3eb;border-radius:8px;background:#fbfcfe;font-size:14px}
+textarea{min-height:90px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.submit{width:100%;padding:15px;background:#102d50;color:white;border:0;border-radius:8px;font-weight:bold;cursor:pointer}
+.submit:hover{background:#d8b66a;color:#102d50}
+.admin-section{background:#eaf0f7}
+.hidden{display:none!important}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:25px 0}
+.stat{background:#102d50;color:white;padding:22px;border-radius:12px}
+.stat h3{font-size:28px;color:#d8b66a;margin-top:10px}
+.table-wrap{overflow-x:auto;margin-top:20px}
+table{width:100%;border-collapse:collapse;background:white;min-width:750px}
+th,td{padding:13px;text-align:left;border-bottom:1px solid #e5eaf0;font-size:13px}
+th{background:#102d50;color:white}
+.action{padding:7px 10px;border:0;border-radius:5px;cursor:pointer;margin:2px}
+.delete{background:#fee2e2;color:#b91c1c}
+.status{background:#e0f2fe;color:#075985;padding:6px;border-radius:5px}
+.login{max-width:430px;margin:20px auto;background:white;padding:30px;border-radius:15px}
+.login h2{text-align:center;color:#102d50;margin-bottom:20px}
+.notice{padding:15px;background:#e8f8ef;color:#167345;border-radius:8px;margin:15px 0;display:none}
+footer{background:#102d50;color:white;text-align:center;padding:35px}
+footer p{color:#c7d3e1;margin-top:10px;font-size:13px}
+@media(max-width:750px){
+ .grid{grid-template-columns:1fr}
+ .hero h1{font-size:34px}
+ .row{grid-template-columns:1fr;gap:0}
+ .stats{grid-template-columns:1fr}
+ header{justify-content:center}
+ nav{justify-content:center}
+ .formbox,.adminbox{padding:22px}
+ section{padding:45px 5%}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">SDN DARU 01 </span></div>
+ <nav>
+  <a href="#home">Beranda</a>
+  <a href="#profil">Profil</a>
+  <a href="#visi">Visi & Misi</a>
+  <a href="#daftar">Pendaftaran</a>
+  <a href="#admin" onclick="showAdmin()">Admin</a>
+ </nav>
+</header>
+
+<!-- BERANDA -->
+<section class="hero" id="home">
+ <span class="badge">PPDB 2027 / 2028</span>
+ <h1>Masa Depan Gemilang Dimulai Dari Sini.</h1>
+ <p>Bergabung bersama sekolah yang membangun generasi cerdas, kreatif, berprestasi, dan berkarakter.</p>
+ <a href="#daftar" class="btn">DAFTAR SEKARANG →</a>
+</section>
+
+<!-- PROFIL -->
+<section id="profil">
+ <div class="heading">
+  <h2>Profil Sekolah</h2>
+  <p>Mengenal lebih dekat sdn daru satu</p>
+ </div>
+ <div class="grid">
+  <div class="card">
+   <div class="icon">🏫</div>
+   <h3>Tentang Sekolah</h3>
+   <p>SDN daru 1 merupakan institusi pendidikan yang berkomitmen menciptakan lingkungan belajar berkualitas.</p>
+  </div>
+  <div class="card">
+   <div class="icon">👨‍🏫</div>
+   <h3>Tenaga Pendidik</h3>
+   <p>Didukung tenaga pendidik profesional yang berdedikasi untuk perkembangan peserta didik.</p>
+  </div>
+  <div class="card">
+   <div class="icon">🏆</div>
+   <h3>Prestasi</h3>
+   <p>Mendorong siswa untuk berprestasi dalam bidang akademik maupun nonakademik.</p>
+  </div>
+ </div>
+</section>
+
+<!-- VISI MISI -->
+<section id="visi" style="background:#eaf0f7">
+ <div class="heading">
+  <h2>Visi & Misi Sekolah</h2>
+  <p>Komitmen kami dalam menciptakan generasi masa depan</p>
+ </div>
+
+ <div class="visi">
+  <h3>VISI SEKOLAH</h3>
+  <p>
+   Menjadi lembaga pendidikan unggul yang menghasilkan generasi
+   beriman, berilmu, berkarakter, mandiri, kreatif, dan berdaya saing
+   global.
+  </p>
+ </div>
+
+ <div class="misi">
+  <h3>MISI SEKOLAH</h3>
+  <ol>
+   <li>Menyelenggarakan pendidikan berkualitas dan inovatif.</li>
+   <li>Membentuk karakter siswa yang disiplin dan bertanggung jawab.</li>
+   <li>Meningkatkan prestasi akademik dan nonakademik.</li>
+   <li>Mengembangkan kreativitas dan kemampuan teknologi siswa.</li>
+   <li>Menciptakan lingkungan sekolah yang aman, nyaman, dan religius.</li>
+   <li>Membangun kerja sama dengan orang tua dan masyarakat.</li>
+  </ol>
+ </div>
+</section>
+
+<!-- PENDAFTARAN -->
+<section id="daftar">
+ <div class="formbox">
+  <h2>Formulir Pendaftaran Siswa Baru</h2>
+  <p>Silakan isi data calon siswa dengan lengkap dan benar.</p>
+
+  <form id="formPPDB">
+   <div class="group">
+    <label>Nama Lengkap *</label>
+    <input name="nama" required placeholder="Nama lengkap siswa">
+   </div>
+
+   <div class="row">
+    <div class="group">
+     <label>NISN</label>
+     <input name="nisn" placeholder="Nomor NISN">
+    </div>
+    <div class="group">
+     <label>Jenis Kelamin *</label>
+     <select name="gender" required>
+      <option value="">Pilih</option>
+      <option>Laki-laki</option>
+      <option>Perempuan</option>
+     </select>
+    </div>
+   </div>
+
+   <div class="row">
+    <div class="group">
+     <label>Tempat Lahir *</label>
+     <input name="tempat" required>
+    </div>
+    <div class="group">
+     <label>Tanggal Lahir *</label>
+     <input type="date" name="tanggal" required>
+    </div>
+   </div>
+
+   <div class="group">
+    <label>Jenjang Pendidikan *</label>
+    <select name="jenjang" required>
+     <option value="">Pilih jenjang</option>
+     <option>SD</option>
+     <option>SMP</option>
+     <option>SMA</option>
+     <option>SMK</option>
+    </select>
+   </div>
+
+   <div class="group">
+    <label>Asal Sekolah *</label>
+    <input name="asal" required>
+   </div>
+
+   <div class="group">
+    <label>Nama Orang Tua / Wali *</label>
+    <input name="ortu" required>
+   </div>
+
+   <div class="row">
+    <div class="group">
+     <label>Nomor WhatsApp *</label>
+     <input name="wa" type="tel" required>
+    </div>
+    <div class="group">
+     <label>Email</label>
+     <input name="email" type="email">
+    </div>
+   </div>
+
+   <div class="group">
+    <label>Alamat Lengkap *</label>
+    <textarea name="alamat" required></textarea>
+   </div>
+
+   <button type="submit" class="submit">
+    KIRIM PENDAFTARAN →
+   </button>
+  </form>
+
+  <div class="notice" id="success"></div>
+ </div>
+</section>
+
+<!-- HALAMAN ADMIN -->
+<section class="admin-section hidden" id="admin">
+
+ <div class="heading">
+  <h2>Administrator Panel</h2>
+  <p>Pengelolaan data pendaftaran siswa baru</p>
+ </div>
+
+ <div class="login" id="loginBox">
+  <h2>🔐 Login Admin</h2>
+  <form id="loginForm">
+   <div class="group">
+    <label>Username</label>
+    <input id="username" required placeholder="Username admin">
+   </div>
+   <div class="group">
+    <label>Password</label>
+    <input id="password" type="password" required placeholder="Password admin">
+   </div>
+   <button class="submit">LOGIN ADMIN</button>
+  </form>
+  <p style="font-size:12px;color:#8290a0;margin-top:15px">
+   Demo login: admin / sekolah123
+  </p>
+  <p id="loginError" style="color:red;margin-top:10px"></p>
+ </div>
+
+ <div class="adminbox hidden" id="dashboard">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+   <h2>Dashboard Admin</h2>
+   <button class="action delete" onclick="logout()">Logout</button>
+  </div>
+
+  <div class="stats">
+   <div class="stat">
+    Total Pendaftar
+    <h3 id="total">0</h3>
+   </div>
+   <div class="stat">
+    Menunggu
+    <h3 id="waiting">0</h3>
+   </div>
+   <div class="stat">
+    Diterima
+    <h3 id="accepted">0</h3>
+   </div>
+  </div>
+
+  <h3 style="color:#102d50;margin-bottom:12px">
+   Data Calon Siswa
+  </h3>
+
+  <div class="table-wrap">
+   <table>
+    <thead>
+     <tr>
+      <th>No.</th>
+      <th>Nomor Daftar</th>
+      <th>Nama</th>
+      <th>Jenjang</th>
+      <th>WhatsApp</th>
+      <th>Status</th>
+      <th>Aksi</th>
+     </tr>
+    </thead>
+    <tbody id="dataSiswa"></tbody>
+   </table>
+  </div>
+  <button class="btn" onclick="exportCSV()">Download Data CSV</button>
+ </div>
+
+</section>
+
+<footer>
+ <h3>NUSANTARA SCHOOL</h3>
+ <p>Membangun generasi cerdas, berkarakter, dan berprestasi.</p>
+ <p>© 2026 Nusantara School. All Rights Reserved.</p>
+</footer>
+
+<script>
+
+// DATABASE DEMO BROWSER
+function getData(){
+ return JSON.parse(localStorage.getItem("ppdbData") || "[]");
+}
+
+function saveData(data){
+ localStorage.setItem("ppdbData",JSON.stringify(data));
+}
+
+// FORM PENDAFTARAN
+document.getElementById("formPPDB")
+.addEventListener("submit",function(e){
+
+ e.preventDefault();
+
+ const form=new FormData(this);
+ const data=getData();
+
+ const nomor="PPDB-2026-"+Date.now().toString().slice(-6);
+
+ const siswa={
+  id:nomor,
+  nama:form.get("nama"),
+  nisn:form.get("nisn"),
+  gender:form.get("gender"),
+  tempat:form.get("tempat"),
+  tanggal:form.get("tanggal"),
+  jenjang:form.get("jenjang"),
+  asal:form.get("asal"),
+  ortu:form.get("ortu"),
+  wa:form.get("wa"),
+  email:form.get("email"),
+  alamat:form.get("alamat"),
+  status:"Menunggu"
+ };
+
+ data.push(siswa);
+ saveData(data);
+
+ const notice=document.getElementById("success");
+ notice.style.display="block";
+ notice.innerHTML="<h3>🎉 Pendaftaran Berhasil!</h3><br>Nomor pendaftaran Anda: <b>"+nomor+"</b>";
+
+ this.reset();
+ notice.scrollIntoView({behavior:"smooth"});
+
+});
+
+// NAVIGASI ADMIN
+function showAdmin(){
+ document.getElementById("admin").classList.remove("hidden");
+}
+
+window.addEventListener("hashchange",function(){
+ if(location.hash==="#admin") showAdmin();
+});
+
+// LOGIN ADMIN DEMO
+document.getElementById("loginForm")
+.addEventListener("submit",function(e){
+
+ e.preventDefault();
+
+ const user=document.getElementById("username").value;
+ const pass=document.getElementById("password").value;
+
+ if(user==="admin" && pass==="sekolah123"){
+  sessionStorage.setItem("adminLogin","true");
+  openDashboard();
+ }else{
+  document.getElementById("loginError").textContent=
+  "Username atau password salah!";
+ }
+
+});
+
+function openDashboard(){
+ document.getElementById("loginBox").classList.add("hidden");
+ document.getElementById("dashboard").classList.remove("hidden");
+ renderData();
+}
+
+function logout(){
+ sessionStorage.removeItem("adminLogin");
+ document.getElementById("dashboard").classList.add("hidden");
+ document.getElementById("loginBox").classList.remove("hidden");
+ document.getElementById("loginForm").reset();
+}
+
+function escapeHTML(value){
+ return String(value ?? "").replace(/[&<>"']/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+ });
+}
+
+// TAMPILKAN DATA SISWA
+function renderData(){
+
+ const data=getData();
+ let waiting=0;
+ let accepted=0;
+
+ data.forEach(s=>{
+  if(s.status==="Menunggu") waiting++;
+  if(s.status==="Diterima") accepted++;
+ });
+
+ document.getElementById("total").textContent=data.length;
+ document.getElementById("waiting").textContent=waiting;
+ document.getElementById("accepted").textContent=accepted;
+
+ const tbody=document.getElementById("dataSiswa");
+
+ if(data.length===0){
+  tbody.innerHTML='<tr><td colspan="7">Belum ada pendaftar.</td></tr>';
+  return;
+ }
+
+ tbody.innerHTML=data.map((s,i)=>`
+ <tr>
+  <td>${i+1}</td>
+  <td>${escapeHTML(s.id)}</td>
+  <td>${escapeHTML(s.nama)}</td>
+  <td>${escapeHTML(s.jenjang)}</td>
+  <td>${escapeHTML(s.wa)}</td>
+  <td>
+   <select class="status" onchange="changeStatus('${s.id}',this.value)">
+    <option ${s.status==="Menunggu"?"selected":""}>Menunggu</option>
+    <option ${s.status==="Diterima"?"selected":""}>Diterima</option>
+    <option ${s.status==="Ditolak"?"selected":""}>Ditolak</option>
+   </select>
+  </td>
+  <td>
+   <button class="action" onclick="detail('${s.id}')">Detail</button>
+   <button class="action delete" onclick="hapus('${s.id}')">Hapus</button>
+  </td>
+ </tr>
+ `).join("");
+}
+
+// UBAH STATUS
+function changeStatus(id,status){
+ const data=getData();
+ const siswa=data.find(s=>s.id===id);
+ if(!siswa)return;
+ siswa.status=status;
+ saveData(data);
+ renderData();
+}
+
+// DETAIL SISWA
+function detail(id){
+ const s=getData().find(x=>x.id===id);
+ if(!s)return;
+
+ alert(
+ "DETAIL CALON SISWA\n\n"+
+ "Nomor: "+s.id+
+ "\nNama: "+s.nama+
+ "\nNISN: "+s.nisn+
+ "\nJenis Kelamin: "+s.gender+
+ "\nTempat Lahir: "+s.tempat+
+ "\nTanggal Lahir: "+s.tanggal+
+ "\nJenjang: "+s.jenjang+
+ "\nAsal Sekolah: "+s.asal+
+ "\nOrang Tua: "+s.ortu+
+ "\nWhatsApp: "+s.wa+
+ "\nEmail: "+s.email+
+ "\nAlamat: "+s.alamat+
+ "\nStatus: "+s.status
+ );
+}
+
+// HAPUS DATA
+function hapus(id){
+ if(!confirm("Yakin ingin menghapus data siswa ini?"))return;
+ const data=getData().filter(s=>s.id!==id);
+ saveData(data);
+ renderData();
+}
+
+// EXPORT CSV
+function exportCSV(){
+ const data=getData();
+ if(!data.length){
+  alert("Belum ada data untuk diunduh.");
+  return;
+ }
+
+ const keys=["id","nama","nisn","gender","tempat","tanggal","jenjang","asal","ortu","wa","email","alamat","status"];
+ const csv=[
+  keys.join(","),
+  ...data.map(s=>keys.map(k=>'"'+String(s[k]??"").replace(/"/g,'""')+'"').join(","))
+ ].join("\n");
+
+ const blob=new Blob(["\uFEFF"+csv],{type:"text/csv;charset=utf-8"});
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");
+ a.href=url;
+ a.download="data-pendaftar-ppdb.csv";
+ a.click();
+ URL.revokeObjectURL(url);
+}
+
+// PERTAHANKAN SESI ADMIN SELAMA TAB TERBUKA
+if(sessionStorage.getItem("adminLogin")==="true"){
+ openDashboard();
+}
+
+</script>
+
+</body>
+</html>
